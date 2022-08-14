@@ -1,3 +1,119 @@
-h1{
+body {
+    background: #f5f7ed;
+    width: 60%;
+    margin: 40px;
+    font-family: "Noto Sans Mono", monospace;
+    background-image: url("/home/xxyy/Documents/SheCodes/SheCodesPlus/Week3/src/pic6.jpg");
+    background-position: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.container search {
+    display: block;
+}
+
+h1 {
+    color: #ecc046;
+    margin: 0 auto;
+    padding: 20px 0;
+    font-family: "Roboto", sans-serif;
+}
+
+.searchplace {
+    padding: 15px 0;
+    margin-left: 0;
+}
+
+.btn {
+    background-color: #42c0d2;
+    border: #42c0d2;
+    color: #f5f7ed;
+}
+
+.container-live {
+    display: block;
     text-align: center;
+    width: 70%;
+}
+
+.col-md-6 {
+    color: #dc7726;
+    text-align: left;
+}
+
+.live-text {
+    margin-bottom: 0;
+}
+
+.citySearched {
+    font-weight: bold;
+}
+
+.tempMeasured {
+    margin-top: 0;
+    font-size: 30px;
+}
+
+.units {
+    position: relative;
+    top: -10px;
+    right: 20px;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.card-text {
+    color: #dc7726;
+    text-align: left;
+}
+
+.icon-live {
+    color: #dc7726;
+    font-size: 110px;
+}
+
+.max {
+    color: #dc7726;
+    font-size: 20px;
+}
+
+.min {
+    color: #42c0d2;
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+
+hr {
+    border: 2px solid #ecc046;
+    margin: 20px 0;
+    width: 70%;
+}
+
+.container-forecast {
+    color: #dc7726;
+    text-align: center;
+    display: block;
+    width: 70%;
+}
+
+.sunshine-monday {
+    color: #dc7726;
+    font-size: 70px;
+    border: #dc7726;
+    padding: 15px 5px;
+}
+
+.forecast-text {
+    color: #42c0d2;
+    padding: 5px;
+}
+
+.madebyme {
+    text-align: center;
+    color: #42c0d2;
+    width: 70%;
+    margin-top: 30px;
+    font-size: 12px;
 }
