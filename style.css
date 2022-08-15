@@ -3,11 +3,8 @@ body {
     width: 60%;
     margin: 40px;
     font-family: "Noto Sans Mono", monospace;
-    /* background-image: url("/home/xxyy/Documents/SheCodes/SheCodesPlus/Week3/src/pic6.jpg"); */
-    background-position: left;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-size: 100%;
+    border: 4px double #ecc046;
+    border-radius: 42px;
 }
 
 .container search {
@@ -18,6 +15,7 @@ h1 {
     color: #ecc046;
     margin: 0 auto;
     padding: 20px 0;
+    text-align: center;
     font-family: "Roboto", sans-serif;
 }
 
@@ -31,11 +29,14 @@ h1 {
     border: #42c0d2;
     color: #f5f7ed;
 }
-
+.currentform{
+    display: block;
+    margin: 0 auto;
+}
 .container-live {
     display: block;
     text-align: center;
-    width: 70%;
+    width: 90%;
 }
 
 .col-md-6 {
@@ -87,15 +88,15 @@ h1 {
 
 hr {
     border: 2px solid #ecc046;
-    margin: 20px 0;
-    width: 70%;
+    margin: 20px 20px;
+    width: 90%;
 }
 
 .container-forecast {
     color: #dc7726;
     text-align: center;
     display: block;
-    width: 70%;
+    width: 90%;
 }
 
 .sunshine-monday {
@@ -113,7 +114,7 @@ hr {
 .madebyme {
     text-align: center;
     color: #42c0d2;
-    width: 70%;
+    width: 90%;
     margin-top: 30px;
     font-size: 12px;
 }

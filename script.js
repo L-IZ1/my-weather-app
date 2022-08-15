@@ -14,7 +14,7 @@ function showCity(event) {
 function showRealTemp(response) {
   let temperature = Math.round(response.data.main.temp);
   let city = response.data.name;
-  let example = document.querySelector("#tempmesure");
+  let example = document.querySelector("#temp-measured");
   example.innerHTML = `${temperature}`;
   let maxt = Math.round(response.data.main.temp_max);
   let max = document.querySelector("#max-temp");
@@ -23,7 +23,7 @@ function showRealTemp(response) {
   let min = document.querySelector("#min-temp");
   min.innerHTML = `${minitemp}`;
   let humidities = Math.round(response.data.main.humidity);
-  let humide = document.querySelector("#hum");
+  let humide = document.querySelector("#humidity");
   humide.innerHTML = `${humidities}`;
   let windspeed = Math.round(response.data.wind.speed);
   let wind = document.querySelector("#windy");
@@ -46,24 +46,13 @@ function getPosition(position) {
 }
 
 function showLiveTemp(response) {
-  let city = response.data.name;
-  let cityname = document.querySelector("#searched-city");
-  cityname.innerHTML = `${city}`;
-  let temperature = Math.round(response.data.main.temp);
-  let temp = document.querySelector("#tempmesure");
-  temp.innerHTML = `${temperature}`;
-  let windspeed = Math.round(response.data.wind.speed);
-  let wind = document.querySelector("#windy");
-  wind.innerHTML = `${windspeed}`;
-  let humidities = Math.round(response.data.main.humidity);
-  let humide = document.querySelector("#hum");
-  humide.innerHTML = `${humidities}`;
-  let maxt = Math.round(response.data.main.temp_max);
-  let max = document.querySelector("#max-temp");
-  max.innerHTML = `${maxt}`;
-  let minitemp = Math.round(response.data.main.temp_min);
-  let min = document.querySelector("#min-temp");
-  min.innerHTML = `${minitemp}`;
+ document.querySelector("#searched-city").innerHTML = response.data.name;
+ document.querySelector("#temp-measured").innerHTML = Math.round(response.data.main.temp);  
+ document.querySelector("#windy").innerHTML = Math.round(response.data.wind.speed);  
+ document.querySelector("#humidity").innerHTML = Math.round(response.data.main.humidity); 
+ document.querySelector("#max-temp").innerHTML = Math.round(response.data.main.temp_max);  
+ document.querySelector("#min-temp").innerHTML = Math.round(response.data.main.temp_min); 
+ document.querySelector("#weather-description").innerHTML = response.data.weather[0].main;
 }
 
 function centigradesToFahrenheit() {
