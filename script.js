@@ -1,20 +1,18 @@
 function showCity(event) {
-  event.preventDefault();
+  event.preventDefault(); 
   let cityInput = document.querySelector("#inputtype");
-  let cityParameter = document.querySelector("#searched-city");
-  cityParameter.innerHTML = `${cityInput.value}`;
   let apiKey = "6f0ce0c2725766b7e6a344b9cd75a87a";
   let unit = "metric";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
   let apiUrl = `${apiEndpoint}?q=${cityInput.value}&appid=${apiKey}&units=${unit}`;
-
   axios.get(apiUrl).then(showRealTemp);
 }
 
 function showRealTemp(response) {
   let temperature = Math.round(response.data.main.temp);
-  let city = response.data.name;
-  let example = document.querySelector("#temp-measured");
+  let cityParameter = document.querySelector("#searched-city");
+  cityParameter.innerHTML = `${response.data.name}`;
+  let example = document.querySelector("#temperature");
   example.innerHTML = `${temperature}`;
   let maxt = Math.round(response.data.main.temp_max);
   let max = document.querySelector("#max-temp");
@@ -58,12 +56,12 @@ function showLiveTemp(response) {
 function centigradesToFahrenheit() {
   let tempCentigrades = 25;
   let fahrenheit = (tempCentigrades * 9) / 5 + 32;
-  let showTempFahrenheit = document.querySelector("#tempmesure");
+  let showTempFahrenheit = document.querySelector("#temp-measured");
   showTempFahrenheit.innerHTML = `${fahrenheit}`;
 }
 
 function fahrenheitToCentigrades() {
-  let showTempCentigrades = document.querySelector("#tempmesure");
+  let showTempCentigrades = document.querySelector("#temp-measured");
   let tempCentigrades = 25;
   showTempCentigrades.innerHTML = `${tempCentigrades}`;
 }
@@ -86,6 +84,15 @@ function printDateinHTML() {
   time.innerHTML = `${day} ${hours}:${minutes}`;
 }
 
+function cityStart(cities) {
+  let apiKey = "6f0ce0c2725766b7e6a344b9cd75a87a";
+  let unit = "metric";
+  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
+  let apiUrl = `${apiEndpoint}?q=${cities}&appid=${apiKey}&units=${unit}`;
+  axios.get(apiUrl).then(showLiveTemp);
+}
+
+
 // Program flow
 
 printDateinHTML();
@@ -102,3 +109,5 @@ selectDegrees.addEventListener("click", fahrenheitToCentigrades);
 
 let searchCurrentPlace = document.querySelector("#current-form");
 searchCurrentPlace.addEventListener("submit", showPlaceLive);
+
+cityStart("Munich");
