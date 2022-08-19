@@ -107,7 +107,7 @@ selectFahrenheit.addEventListener("click", centigradesToFahrenheit);
 let selectDegrees = document.querySelector("#degrees");
 selectDegrees.addEventListener("click", fahrenheitToCentigrades);
 
-let searchCurrentPlace = document.querySelector("#current-form");
+let searchCurrentPlace = document.querySelector("#second-button");
 searchCurrentPlace.addEventListener("submit", showPlaceLive);
 
 cityStart("Munich");
