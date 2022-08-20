@@ -20,6 +20,7 @@ ul {
 
 li {
     list-style: none;
+    text-transform: capitalize;
     color: #dc7726;
     text-align: left;
     padding: 0;

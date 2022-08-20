@@ -12,8 +12,8 @@ function showRealTemp(response) {
   let temperature = Math.round(response.data.main.temp);
   let cityParameter = document.querySelector("#searched-city");
   cityParameter.innerHTML = `${response.data.name}`;
-  let example = document.querySelector("#temperature");
-  example.innerHTML = `${temperature}`;
+  let temp = document.querySelector("#temp-measured");
+  temp.innerHTML = `${temperature}`;
   let maxt = Math.round(response.data.main.temp_max);
   let max = document.querySelector("#max-temp");
   max.innerHTML = `${maxt}`;
@@ -25,7 +25,11 @@ function showRealTemp(response) {
   humide.innerHTML = `${humidities}`;
   let windspeed = Math.round(response.data.wind.speed);
   let wind = document.querySelector("#windy");
-  wind.innerHTML = `${windspeed}`;
+  wind.innerHTML = `${windspeed}`;  
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+  
 }
 
 function showPlaceLive(event) {
@@ -51,6 +55,8 @@ function showLiveTemp(response) {
  document.querySelector("#max-temp").innerHTML = Math.round(response.data.main.temp_max);  
  document.querySelector("#min-temp").innerHTML = Math.round(response.data.main.temp_min); 
  document.querySelector("#weather-description").innerHTML = response.data.weather[0].main;
+let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
 function centigradesToFahrenheit() {
