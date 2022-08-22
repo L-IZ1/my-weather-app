@@ -33,14 +33,7 @@ hr {
     margin: 30px 50px;
 }
 
-a:link {
-    color: #dc7726;
-}
 
-a:hover {
-    color: #42c0d2;
-    cursor: pointer;
-}
 
 .whole-app-container {
     display: block;
@@ -98,9 +91,10 @@ a:hover {
     padding: 10px 0;
 }
 
-.live-temp {
+.float-left {
     margin-top: 0;
     font-size: 55px;
+    color: #dc7726;
 }
 
 .weather-description-live {
@@ -110,14 +104,23 @@ a:hover {
 .temp-number {
     margin-right: 15px;
 }
+.unites {
+    cursor: default;
+    color: #dc7726;
+}
 
-/* .unit {
+.unites:hover {
+    text-decoration: none;
+    color: #dc7726;
+}
+.unit {
     position: relative;
     top: -30px;
     right: 15px;
     font-size: medium;
     font-weight: bold;
-} */
+    color: #dc7726;
+}
 
 .card-text {
     color: #dc7726;
@@ -167,12 +170,19 @@ a:hover {
 }
 
 .units{
-    color:green;
+    color: #dc7726;
 }
 
-.unites{
-    color:red;
+
+a:link {
+    color: #dc7726;
+    text-decoration: none;
 }
+
+/* a:hover {
+    color: #42c0d2;
+    cursor: pointer;
+} */
 
 /* .unites {
     position: relative;
@@ -183,6 +193,3 @@ a:hover {
         color:red;
         cursor:default;
 }
-.unites:hover {
-    text-decoration: none;
-} */
