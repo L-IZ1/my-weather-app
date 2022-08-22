@@ -8,6 +8,14 @@ function showCity(event) {
   axios.get(apiUrl).then(showRealTemp);
 }
 
+function getApiForecast(coordinates){
+let apiKey = "6f0ce0c2725766b7e6a344b9cd75a87a";
+let apiEndpoint = "https://api.openweathermap.org/data/3.0/onecall";
+let unit = "metric";
+let apiUrl =`${apiEndpoint}?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${unit}`;
+axios.get(apiUrl).then(showForecast);
+}
+
 function showRealTemp(response) {
   celsiusTemperature = Math.round(response.data.main.temp);
   let temperature = Math.round(celsiusTemperature);
@@ -31,6 +39,8 @@ function showRealTemp(response) {
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   iconElement.setAttribute("alt",response.data.weather[0].description)  
+
+getApiForecast(response.data.coord);
 }
 
 function showPlaceLive(event) {
@@ -154,3 +164,4 @@ selectDegrees.addEventListener("click", fahrenheitToCentigrades);
 
 cityStart("Munich");
 showForecast();
+
