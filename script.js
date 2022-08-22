@@ -107,8 +107,6 @@ function printDateinHTML() {
   time.innerHTML = `${day} ${hours}:${minutes}`;
 }
 
-
-
 // Program flow
 
 printDateinHTML();
