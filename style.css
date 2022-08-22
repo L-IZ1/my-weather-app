@@ -160,6 +160,10 @@ hr {
     color: #dc7726;
     padding: 5px;
 }
+.forecast-temperature{
+    color: #dc7726;
+        padding: 5px;
+}
 
 .madebyme {
     text-align: center;

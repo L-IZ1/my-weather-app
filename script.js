@@ -49,7 +49,7 @@ function getPosition(position) {
   axios.get(apiUrl).then(showLiveTemp);
 }
 
-function showLiveTemp(response) {
+function showLiveTemp(response) {  
  celsiusTemperature = response.data.main.temp;
  document.querySelector("#temp-measured").innerHTML = Math.round(celsiusTemperature);
  document.querySelector("#searched-city").innerHTML = response.data.name;  
@@ -107,6 +107,31 @@ function printDateinHTML() {
   time.innerHTML = `${day} ${hours}:${minutes}`;
 }
 
+function showForecast (){
+  let forecastElement = document.querySelector("#weather-forecast");
+  let forecastDays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",]
+  let forecastHtml = `<div class="row">`;
+  forecastDays.forEach(function(day){
+  forecastHtml = forecastHtml + 
+` <div class="col-2">
+<div class="forecast-text">
+<strong>Monday</strong><br />
+<img src="" alt="" id="icon" class="float-left" /><br />
+<div class= "forecast-temperature">
+<span>15°C</span><span>25°C</span></div>
+</div>
+</div>
+`;
+  });
+  forecastHtml = forecastHtml + ` </div> `;
+  forecastElement.innerHTML = forecastHtml;
+}
+
 // Program flow
 
 printDateinHTML();
@@ -128,3 +153,4 @@ let selectDegrees = document.querySelector("#degrees");
 selectDegrees.addEventListener("click", fahrenheitToCentigrades);
 
 cityStart("Munich");
+showForecast();
