@@ -9,7 +9,8 @@ function showCity(event) {
 }
 
 function showRealTemp(response) {
-  let temperature = Math.round(response.data.main.temp);
+  celsiusTemperature = Math.round(response.data.main.temp);
+  let temperature = Math.round(celsiusTemperature);
   let cityParameter = document.querySelector("#searched-city");
   cityParameter.innerHTML = `${response.data.name}`;
   let temp = document.querySelector("#temp-measured");
@@ -28,8 +29,7 @@ function showRealTemp(response) {
   wind.innerHTML = `${windspeed}`; 
   document.querySelector("#weather-description").innerHTML = response.data.weather[0].description; 
   let iconElement = document.querySelector("#icon");
-  iconElement.setAttribute("src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   iconElement.setAttribute("alt",response.data.weather[0].description)  
 }
 
@@ -50,33 +50,44 @@ function getPosition(position) {
 }
 
 function showLiveTemp(response) {
- document.querySelector("#searched-city").innerHTML = response.data.name;
- document.querySelector("#temp-measured").innerHTML = Math.round(response.data.main.temp);  
+ celsiusTemperature = response.data.main.temp;
+ document.querySelector("#temp-measured").innerHTML = Math.round(celsiusTemperature);
+ document.querySelector("#searched-city").innerHTML = response.data.name;  
  document.querySelector("#windy").innerHTML = Math.round(response.data.wind.speed);  
  document.querySelector("#humidity").innerHTML = Math.round(response.data.main.humidity); 
  document.querySelector("#max-temp").innerHTML = Math.round(response.data.main.temp_max);  
  document.querySelector("#min-temp").innerHTML = Math.round(response.data.main.temp_min); 
  document.querySelector("#weather-description").innerHTML = response.data.weather[0].description;
  let iconElement = document.querySelector("#icon");
-   iconElement.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-    iconElement.setAttribute(
-    "alt", response.data.weather[0].description);
-  }
+ iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+ iconElement.setAttribute("alt", response.data.weather[0].description);
+}
 
-// function centigradesToFahrenheit() {
-//   let tempCentigrades = 25;
-//   let fahrenheit = (tempCentigrades * 9) / 5 + 32;
-//   let showTempFahrenheit = document.querySelector("#temp-measured");
-//   showTempFahrenheit.innerHTML = `${fahrenheit}`;
-// }
+function cityStart(cities) {
+  let apiKey = "6f0ce0c2725766b7e6a344b9cd75a87a";
+  let unit = "metric";
+  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
+  let apiUrl = `${apiEndpoint}?q=${cities}&appid=${apiKey}&units=${unit}`;
+  axios.get(apiUrl).then(showLiveTemp);
+}
 
-// function fahrenheitToCentigrades() {
-//   let showTempCentigrades = document.querySelector("#temp-measured");
-//   let tempCentigrades = 25;
-//   showTempCentigrades.innerHTML = `${tempCentigrades}`;
-// }
+
+function centigradesToFahrenheit(event) {
+  event.preventDefault();
+  let showTempFahrenheit = document.querySelector("#temp-measured");
+  degrees.classList.remove("unites");
+  fahrenheit.classList.add("units");
+  let fahrenheitt = (celsiusTemperature * 9) / 5 + 32;
+  showTempFahrenheit.innerHTML = Math.round(fahrenheitt);
+}
+
+function fahrenheitToCentigrades(event) {
+  event.preventDefault();
+  degrees.classList.add("unites");
+  fahrenheit.classList.remove("units");
+  let showTempCentigrades = document.querySelector("#temp-measured");
+  showTempCentigrades.innerHTML = Math.round(celsiusTemperature);
+}
 
 function printDateinHTML() {
   let currentTime = new Date();
@@ -96,13 +107,6 @@ function printDateinHTML() {
   time.innerHTML = `${day} ${hours}:${minutes}`;
 }
 
-function cityStart(cities) {
-  let apiKey = "6f0ce0c2725766b7e6a344b9cd75a87a";
-  let unit = "metric";
-  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
-  let apiUrl = `${apiEndpoint}?q=${cities}&appid=${apiKey}&units=${unit}`;
-  axios.get(apiUrl).then(showLiveTemp);
-}
 
 
 // Program flow
@@ -110,16 +114,19 @@ function cityStart(cities) {
 printDateinHTML();
 
 // When interaction with
+
+let celsiusTemperature= null;
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", showCity);
 
-// let selectFahrenheit = document.querySelector("#fahrenheit");
-// selectFahrenheit.addEventListener("click", centigradesToFahrenheit);
-
-// let selectDegrees = document.querySelector("#degrees");
-// selectDegrees.addEventListener("click", fahrenheitToCentigrades);
-
 let searchCurrentPlace = document.querySelector("#live-button");
 searchCurrentPlace.addEventListener("click", showPlaceLive);
+
+let selectFahrenheit = document.querySelector("#fahrenheit");
+selectFahrenheit.addEventListener("click", centigradesToFahrenheit);
+
+let selectDegrees = document.querySelector("#degrees");
+selectDegrees.addEventListener("click", fahrenheitToCentigrades);
 
 cityStart("Munich");
