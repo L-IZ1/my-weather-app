@@ -4,13 +4,13 @@ body {
     padding: 0;
     font-family: "Noto Sans Mono", monospace;
     height: 100vh;
-    background: #dc7726 no-repeat center center fixed;
+    background: #ec6e4c no-repeat center center fixed;
     background-size: 100% 100%;
-    background: -webkit-linear-gradient(top, #dc7726, #ecc046);
-    background: -moz-linear-gradient(top, #dc7726, #ecc046);
-    background: -ms-linear-gradient(top, #dc7726, #ecc046);
-    background: -o-linear-gradient(top, #dc7726, #ecc046);
-    background: linear-gradient(to bottom, #dc7726, #ecc046);
+    background: -webkit-linear-gradient(top, #ec6e4c, #ecc046);
+    background: -moz-linear-gradient(top, #ec6e4c, #ecc046);
+    background: -ms-linear-gradient(top, #ec6e4c, #ecc046);
+    background: -o-linear-gradient(top, #ec6e4c, #ecc046);
+    background: linear-gradient(to bottom, #ec6e4c, #ecc046);
 }
 
 ul {
@@ -21,7 +21,7 @@ ul {
 li {
     list-style: none;
     text-transform: capitalize;
-    color: #dc7726;
+    color: #ec6e4c;
     text-align: left;
     padding: 0;
     margin: 0;
@@ -41,9 +41,9 @@ hr {
 
 .app-container {
     margin: 15px 10px;
-    border: 2px solid #dc7726;
+    border: 2px solid #ec6e4c;
     border-radius: 42px;
-    background: #f5f7ed
+    background: #f2e5b5;
 }
 
 .container-search-weather {
@@ -59,7 +59,7 @@ hr {
 .btn {
     background-color: #42c0d2;
     border: #42c0d2;
-    color: #f5f7ed;
+    color: #f2e5b5;
 }
 
 .container-live {
@@ -69,7 +69,7 @@ hr {
 
 .icon-live-weather {
     margin: 0 auto;
-    color: #dc7726;
+    color: #ec6e4c;
 }
 
 .icon-live {
@@ -94,7 +94,7 @@ hr {
 .float-left {
     margin-top: 0;
     font-size: 55px;
-    color: #dc7726;
+    color: #ec6e4c;
 }
 
 .weather-description-live {
@@ -106,12 +106,12 @@ hr {
 }
 .unites {
     cursor: default;
-    color: #dc7726;
+    color: #ec6e4c;
 }
 
 .unites:hover {
     text-decoration: none;
-    color: #dc7726;
+    color: #ec6e4c;
 }
 .unit {
     position: relative;
@@ -119,11 +119,11 @@ hr {
     right: 15px;
     font-size: medium;
     font-weight: bold;
-    color: #dc7726;
+    color: #ec6e4c;
 }
 
 .card-text {
-    color: #dc7726;
+    color: #ec6e4c;
     text-align: left;
     border: 1px solid #ecc046;
     border-radius: 10px;
@@ -132,7 +132,7 @@ hr {
 }
 
 .max {
-    color: #dc7726;
+    color: #ec6e4c;
     font-size: 20px;
 }
 
@@ -143,46 +143,48 @@ hr {
 }
 
 .container-forecast {
-    color: #dc7726;
+    color: #ec6e4c;
     text-align: center;
     display: block;
     width: 100%;
 }
 
 .sunshine-monday {
-    color: #dc7726;
+    color: #ec6e4c;
     font-size: 40px;
-    border: #dc7726;
+    border: #ec6e4c;
     padding: 15px 5px;
 }
 
 .forecast-text {
-    color: #dc7726;
+    color: #ec6e4c;
     padding: 5px;
 }
 .forecast-temperature{
-    color: #dc7726;
+    color: #ec6e4c;
         padding: 5px;
 }
 
 .madebyme {
     text-align: center;
-    color: #dc7726;
+    color: #ec6e4c;
     width: 90%;
     margin-top: 30px;
     font-size: 16px;
 }
 
 .units{
-    color: #dc7726;
+    color: #ec6e4c;
 }
 
 
 a:link {
-    color: #dc7726;
+    color: #ec6e4c;
     text-decoration: none;
 }
-
+.unit a:hover {
+    
+}
 /* a:hover {
     color: #42c0d2;
     cursor: pointer;
