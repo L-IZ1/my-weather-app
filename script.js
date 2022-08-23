@@ -10,9 +10,7 @@ function showCity(event) {
 
 function getApiForecast(coordinates){
 let apiKey = "6f0ce0c2725766b7e6a344b9cd75a87a";
-let apiEndpoint = "https://api.openweathermap.org/data/3.0/onecall";
-let unit = "metric";
-let apiUrl =`${apiEndpoint}?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${unit}`;
+let apiUrl =`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(showForecast);
 }
 
@@ -71,6 +69,8 @@ function showLiveTemp(response) {
  let iconElement = document.querySelector("#icon");
  iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
  iconElement.setAttribute("alt", response.data.weather[0].description);
+
+ getApiForecast(response.data.coord);
 }
 
 function cityStart(cities) {
@@ -117,26 +117,41 @@ function printDateinHTML() {
   time.innerHTML = `${day} ${hours}:${minutes}`;
 }
 
-function showForecast (){
-  let forecastElement = document.querySelector("#weather-forecast");
-  let forecastDays = [
+function formatDayForecast(timestamp){
+let date= new Date(timestamp * 1000);
+let day = date.getDay();
+let days = [
     "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
-    "Thursday",]
-  let forecastHtml = `<div class="row">`;
-  forecastDays.forEach(function(day){
-  forecastHtml = forecastHtml + 
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+return days[day];
+}
+
+function showForecast (response){
+let forecastDaily= response.data.daily;
+
+let forecastElement = document.querySelector("#weather-forecast");
+
+let forecastHtml = `<div class="row">`;
+
+forecastDaily.forEach(function(WeatherForecastDay, index){
+if (index <6){
+forecastHtml = forecastHtml + 
 ` <div class="col-2">
 <div class="forecast-text">
-<strong>Monday</strong><br />
-<img src="" alt="" id="icon" class="float-left" /><br />
+<strong>${formatDayForecast(WeatherForecastDay.dt)}</strong><br />
+<img src="http://openweathermap.org/img/wn/${WeatherForecastDay.weather[0].icon}@2x.png" alt="" id="icon" class="float-left" /><br />
 <div class= "forecast-temperature">
-<span>15°C</span><span>25°C</span></div>
+<span>${Math.round(WeatherForecastDay.temp.max)}°</span> <span>${Math.round(WeatherForecastDay.temp.min)}°</span></div>
 </div>
 </div>
 `;
+}
   });
   forecastHtml = forecastHtml + ` </div> `;
   forecastElement.innerHTML = forecastHtml;
@@ -163,5 +178,7 @@ let selectDegrees = document.querySelector("#degrees");
 selectDegrees.addEventListener("click", fahrenheitToCentigrades);
 
 cityStart("Munich");
-showForecast();
+
+// showForecast();
+
 
