@@ -5,7 +5,7 @@ function showCity(event) {
   let unit = "metric";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
   let apiUrl = `${apiEndpoint}?q=${cityInput.value}&appid=${apiKey}&units=${unit}`;
-  axios.get(apiUrl).then(showRealTemp);
+  axios.get(apiUrl).then(showLiveTemperature);
 }
 
 function getApiForecast(coordinates){
@@ -14,12 +14,12 @@ let apiUrl =`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.l
 axios.get(apiUrl).then(showForecast);
 }
 
-function showRealTemp(response) {
+function showLiveTemperature(response) {
   celsiusTemperature = Math.round(response.data.main.temp);
   let temperature = Math.round(celsiusTemperature);
   let cityParameter = document.querySelector("#searched-city");
   cityParameter.innerHTML = `${response.data.name}`;
-  let temp = document.querySelector("#temp-measured");
+  let temp = document.querySelector("#live-temperature");
   temp.innerHTML = `${temperature}`;
   let maxt = Math.round(response.data.main.temp_max);
   let max = document.querySelector("#max-temp");
@@ -54,12 +54,12 @@ function getPosition(position) {
   let unit = "metric";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
   let apiUrl = `${apiEndpoint}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${unit}`;
-  axios.get(apiUrl).then(showLiveTemp);
+  axios.get(apiUrl).then(showLiveTemperature);
 }
 
-function showLiveTemp(response) {  
+function showLiveTemperature(response) {  
  celsiusTemperature = response.data.main.temp;
- document.querySelector("#temp-measured").innerHTML = Math.round(celsiusTemperature);
+ document.querySelector("#live-temperature").innerHTML = Math.round(celsiusTemperature);
  document.querySelector("#searched-city").innerHTML = response.data.name;  
  document.querySelector("#windy").innerHTML = Math.round(response.data.wind.speed);  
  document.querySelector("#humidity").innerHTML = Math.round(response.data.main.humidity); 
@@ -78,13 +78,13 @@ function cityStart(cities) {
   let unit = "metric";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
   let apiUrl = `${apiEndpoint}?q=${cities}&appid=${apiKey}&units=${unit}`;
-  axios.get(apiUrl).then(showLiveTemp);
+  axios.get(apiUrl).then(showLiveTemperature);
 }
 
 
 function centigradesToFahrenheit(event) {
   event.preventDefault();
-  let showTempFahrenheit = document.querySelector("#temp-measured");
+  let showTempFahrenheit = document.querySelector("#live-temperature");
   degrees.classList.remove("unites");
   fahrenheit.classList.add("units");
   let fahrenheitt = (celsiusTemperature * 9) / 5 + 32;
@@ -95,7 +95,7 @@ function fahrenheitToCentigrades(event) {
   event.preventDefault();
   degrees.classList.add("unites");
   fahrenheit.classList.remove("units");
-  let showTempCentigrades = document.querySelector("#temp-measured");
+  let showTempCentigrades = document.querySelector("#live-temperature");
   showTempCentigrades.innerHTML = Math.round(celsiusTemperature);
 }
 
@@ -144,7 +144,7 @@ if (index <6){
 forecastHtml = forecastHtml + 
 `<div class="col-2">
 <div class="forecast-text">
-<strong>${formatDayForecast(WeatherForecastDay.dt)}</strong><br /><img src="http://openweathermap.org/img/wn/${WeatherForecastDay.weather[0].icon}@2x.png" alt="" id="icon" class="icon-fforecast"/><br />
+<strong>${formatDayForecast(WeatherForecastDay.dt)}</strong><br /><img src="http://openweathermap.org/img/wn/${WeatherForecastDay.weather[0].icon}@2x.png" alt="" id="icon" class="icon-for-forecast"/><br />
 <div class= "forecast-temperature">
 <i class="fa-solid fa-arrow-up max-forecast-temp"></i><span>${Math.round(WeatherForecastDay.temp.max)}°</span><i class="fa-solid fa-arrow-down min-forecast-temp"></i><span>${Math.round(WeatherForecastDay.temp.min)}°</span></div>
 </div>
@@ -173,7 +173,7 @@ searchCurrentPlace.addEventListener("click", showPlaceLive);
 let selectFahrenheit = document.querySelector("#fahrenheit");
 selectFahrenheit.addEventListener("click", centigradesToFahrenheit);
 
-let selectDegrees = document.querySelector("#degrees");
+let selectDegrees = document.querySelector("#celsius");
 selectDegrees.addEventListener("click", fahrenheitToCentigrades);
 
 cityStart("Munich");
