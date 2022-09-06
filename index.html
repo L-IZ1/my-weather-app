@@ -28,12 +28,12 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <title>☀️ My weather app ☀️</title>
+    <title>☀️ Weather app ☀️</title>
   </head>
   <body>
-  <div class="whole-app-container">
-    <div class="app-container">
-      <div class="container-search-weather">
+  <div>
+    <div class="container-app">
+      <div class="search-weather">
         <div class="row">
           <div class="col-md-5 place">
             <form class="search-form" id="search-form">
@@ -43,7 +43,7 @@
                 autofocus="on"
                 autocomplete="off"
                 id="inputtype"
-                placeholder="🔎 type here"
+                placeholder="🔎 enter a place"
               />
           </div>
           <div class="col button col-md-2" id="special-button">
@@ -63,38 +63,31 @@
         </form>
         </div>
       </div>
-    <div class="container-live">
+    <div class="live-weather">
       <div class="row">
-        <!-- <div class="col-md-2 icon-live-weather">
-          <i class="fa-solid fa-sun icon-live"></i>
-        </div> -->
         <div class="col-md-7 live-city">
           <ul>
             <li>
-            <span class="city-searched" id="searched-city">
+            <span class="searched-place" id="searched-city">
             </span>
             </li>
             <li class="date"id="live-date"></li>
           </ul>
           <div class="d-flex weather-temperature">
             <img src="" alt="" id="icon" class="float-left" />
-            <!-- <div> -->
-            <!-- <strong class="temp-number" id="temperature"></strong>
-              <div class="live-temp" id="temp-measured"> -->
             <div class = "float-left" id= "temp-measure">
               <strong id="temp-measured"></strong>
-            <span class="unit"><a href="#" class="unites" id="degrees">°C</a><a href="#" class="units" id="fahrenheit">|°F</a></span>
+            <span class="unit"><a href="#" class="units-celsius-fahrenheit" id="degrees">°C</a><a href="#" class="units" id="fahrenheit">°F</a></span>
             </div>
-            <!-- </div>-->
           </div>
             <ul>
             <li class="weather-description-live" id="weather-description"></li>
           </ul>
         </div>
         <div class="col-md-4 weather-live">
-          <p class="card-text">
-            <i class="fa-solid fa-arrow-up max"></i> Max:<span id="max-temp"></span>°C<br />
-            <i class="fa-solid fa-arrow-down min"></i> Min:<span id="min-temp"
+          <p class="card-text-weather-conditions">
+            <i class="fa-solid fa-arrow-up max-current-temp"></i> Max:<span id="max-temp"></span>°C<br />
+            <i class="fa-solid fa-arrow-down min-current-temp"></i> Min:<span id="min-temp"
             ></span
             >°C<br />
             Humidity:<span id="humidity"></span>%<br />
@@ -104,28 +97,10 @@
         </div>
         </div>
         <hr />
-        <div class="container-forecast" id="weather-forecast">
-        <div class="row">
-        <!-- <div class="col forecast-5days">
-          <div class="forecast-text">
-            <strong>Monday</strong><br />
-            <img src="" alt="" id="icon" class="float-left" /><br />
-            <div class= "forecast-temperature">
-            <span>15°C</span><span>25°C</span></div>
-            </div>
-        </div> -->
-        <!-- <div class="col forecast-5days">
-          <p class="forecast-text">
-            <strong>Monday</strong><br />
-            <i class="fa-solid fa-sun sunshine-monday"></i><br />
-            15°C<br />
-            25°C
-          </p>
-        </div> -->
-      </div>
+        <div class="weather-forecast" id="weather-forecast">
       </div>
   </div>
-  <p class="madebyme"><a href="https://github.com/L-IZ1/my-weather-app" target="_blank">open-source code</a>, by Elise Petitjean <i class="fa-brands fa-linkedin"></i></p>
+  <p class="madebyme"><a class="link-github" href="https://github.com/L-IZ1/my-weather-app" target="_blank">open-source code</a> by Elise Petitjean <i class="fa-brands fa-linkedin"></i></p>
 <script src="script.js"></script>  
 </body>
 </html>
