@@ -16,23 +16,19 @@ axios.get(apiUrl).then(showForecast);
 
 function showLiveTemperature(response) {
   celsiusTemperature = Math.round(response.data.main.temp);
-  let temperature = Math.round(celsiusTemperature);
-  let cityParameter = document.querySelector("#searched-city");
-  cityParameter.innerHTML = `${response.data.name}`;
-  let temp = document.querySelector("#live-temperature");
-  temp.innerHTML = `${temperature}`;
-  let maxt = Math.round(response.data.main.temp_max);
-  let max = document.querySelector("#max-temp");
-  max.innerHTML = `${maxt}`;
-  let minitemp = Math.round(response.data.main.temp_min);
-  let min = document.querySelector("#min-temp");
-  min.innerHTML = `${minitemp}`;
-  let humidities = Math.round(response.data.main.humidity);
-  let humide = document.querySelector("#humidity");
-  humide.innerHTML = `${humidities}`;
-  let windspeed = Math.round(response.data.wind.speed);
-  let wind = document.querySelector("#windy");
-  wind.innerHTML = `${windspeed}`; 
+  let citySelector = document.querySelector("#searched-city");
+  citySelector.innerHTML = `${response.data.name}`;
+  let temperatureSelector = document.querySelector("#live-temperature");
+  temperatureSelector.innerHTML = Math.round(celsiusTemperature);
+  let maxTempSelector = document.querySelector("#max-temp");
+  maxTempSelector.innerHTML = Math.round(response.data.main.temp_max);
+  let minTempSelector = document.querySelector("#min-temp");
+  minTempSelector.innerHTML = Math.round(response.data.main.temp_min);
+  let humiditySelector = document.querySelector("#humidity");
+  humiditySelector.innerHTML = Math.round(response.data.main.humidity);
+  let windspeedSelector = document.querySelector("#windy");
+  windspeedSelector.innerHTML = Math.round(response.data.wind.speed); 
+
   document.querySelector("#weather-description").innerHTML = response.data.weather[0].description; 
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
@@ -85,7 +81,7 @@ function cityStart(cities) {
 function centigradesToFahrenheit(event) {
   event.preventDefault();
   let showTempFahrenheit = document.querySelector("#live-temperature");
-  degrees.classList.remove("unites");
+  celsius.classList.remove("unites");
   fahrenheit.classList.add("units");
   let fahrenheitt = (celsiusTemperature * 9) / 5 + 32;
   showTempFahrenheit.innerHTML = Math.round(fahrenheitt);
@@ -93,7 +89,7 @@ function centigradesToFahrenheit(event) {
 
 function fahrenheitToCentigrades(event) {
   event.preventDefault();
-  degrees.classList.add("unites");
+  celsius.classList.add("unites");
   fahrenheit.classList.remove("units");
   let showTempCentigrades = document.querySelector("#live-temperature");
   showTempCentigrades.innerHTML = Math.round(celsiusTemperature);
