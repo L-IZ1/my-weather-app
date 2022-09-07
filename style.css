@@ -178,6 +178,15 @@ a:link {
     color: #ec6e4c;
 }
 
+.link-linkedin {
+    color: #ec6e4c;
+}
+
+.link-linkedin:hover {
+    text-decoration: underline;
+    color: #ec6e4c;
+}
+
 .madebyme {
     text-align: center;
     color: #ec6e4c;

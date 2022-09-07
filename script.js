@@ -82,8 +82,8 @@ function centigradesToFahrenheit(event) {
   let showTempFahrenheit = document.querySelector("#live-temperature");
   celsius.classList.remove("active");
   fahrenheit.classList.add("active");
-  let fahrenheitt = (celsiusTemperature * 9) / 5 + 32;
-  showTempFahrenheit.innerHTML = Math.round(fahrenheitt);
+  let fahrenheitSymbol = (celsiusTemperature * 9) / 5 + 32;
+  showTempFahrenheit.innerHTML = Math.round(fahrenheitSymbol);
 }
 
 function fahrenheitToCentigrades(event) {
