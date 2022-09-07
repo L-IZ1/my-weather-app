@@ -28,7 +28,6 @@ function showLiveTemperature(response) {
   humiditySelector.innerHTML = Math.round(response.data.main.humidity);
   let windspeedSelector = document.querySelector("#windy");
   windspeedSelector.innerHTML = Math.round(response.data.wind.speed); 
-
   document.querySelector("#weather-description").innerHTML = response.data.weather[0].description; 
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
@@ -81,16 +80,16 @@ function cityStart(cities) {
 function centigradesToFahrenheit(event) {
   event.preventDefault();
   let showTempFahrenheit = document.querySelector("#live-temperature");
-  celsius.classList.remove("unites");
-  fahrenheit.classList.add("units");
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
   let fahrenheitt = (celsiusTemperature * 9) / 5 + 32;
   showTempFahrenheit.innerHTML = Math.round(fahrenheitt);
 }
 
 function fahrenheitToCentigrades(event) {
   event.preventDefault();
-  celsius.classList.add("unites");
-  fahrenheit.classList.remove("units");
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
   let showTempCentigrades = document.querySelector("#live-temperature");
   showTempCentigrades.innerHTML = Math.round(celsiusTemperature);
 }

@@ -71,8 +71,8 @@ a:link {
     color: #ec6e4c;
     text-decoration: none;
 }
-
-.unit a:hover {}
+/* 
+.unit a:hover {} */
 
 /* a:hover {
     color: #42c0d2;
@@ -104,17 +104,17 @@ a:link {
     font-size: 16px;
 }
 
-.units-celsius-fahrenheit {
+/* .unit-celsius {
     cursor: default;
     color: #ec6e4c;
 }
 
-.units-celsius-fahrenheit:hover {
+.unit-celsius:hover {
     text-decoration: none;
     color: #ec6e4c;
-}
+} */
 
-.unit {
+.units {
     position: relative;
     top: -30px;
     right: 15px;
@@ -185,4 +185,13 @@ a:link {
     margin-top: 30px;
     font-size: 14px;
     font-weight: bold;
+}
+
+.active {
+    color: #ec6e4c;
+    cursor: default;
+}
+
+.active:hover {
+    text-decoration: none;
 }
