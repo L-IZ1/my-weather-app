@@ -12,6 +12,10 @@ body {
     background: -o-linear-gradient(top, #ec6e4c, #ecc046);
     background: linear-gradient(to bottom, #ec6e4c, #ecc046);
 }
+#inputtype{
+    background-color: #f2e5b5;
+    color:#ec6e4c;
+}
 
 ul {
     padding: 0 auto;
@@ -162,12 +166,12 @@ a:link {
 }
 
 .link-github{
-    color:#ec6e4c;
+    color:#ecc046;
 }
 
 .link-github:hover{
-    text-decoration: underline;
     color: #ec6e4c;
+    text-decoration: underline;
 }
 
 .link-linkedin {
@@ -184,6 +188,6 @@ a:link {
     color: #ec6e4c;
     max-width: 100%;
     margin-top: 30px;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: bold;
 }
