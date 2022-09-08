@@ -56,8 +56,8 @@ hr {
 }
 
 .icon-for-forecast{
-    /* display: block;
-    position: relative; */
+    display: block;
+    position: relative;
     max-width: 100%;
 
 }
@@ -71,13 +71,6 @@ a:link {
     color: #ec6e4c;
     text-decoration: none;
 }
-/* 
-.unit a:hover {} */
-
-/* a:hover {
-    color: #42c0d2;
-    cursor: pointer;
-} */
 
 .live-weather {
     max-width: 100%;
@@ -104,16 +97,6 @@ a:link {
     font-size: 16px;
 }
 
-/* .unit-celsius {
-    cursor: default;
-    color: #ec6e4c;
-}
-
-.unit-celsius:hover {
-    text-decoration: none;
-    color: #ec6e4c;
-} */
-
 .units {
     position: relative;
     top: -30px;
@@ -121,6 +104,15 @@ a:link {
     font-size: medium;
     font-weight: bold;
     color: #ec6e4c;
+}
+
+.active {
+    color: #ec6e4c;
+    cursor: default;
+}
+
+.active:hover {
+    text-decoration: none;
 }
 
 .card-text-weather-conditions {
@@ -194,13 +186,4 @@ a:link {
     margin-top: 30px;
     font-size: 14px;
     font-weight: bold;
-}
-
-.active {
-    color: #ec6e4c;
-    cursor: default;
-}
-
-.active:hover {
-    text-decoration: none;
 }
