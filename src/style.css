@@ -17,6 +17,11 @@ body {
     color:#ec6e4c;
 }
 
+#container {
+    -webkit-box-shadow: 0px 5px 6px 2px #EC6E4C;
+    box-shadow: 0px 5px 6px 2px #EC6E4C;
+}
+
 ul {
     margin: 0px auto;
     padding-left: 0px;
@@ -42,6 +47,7 @@ hr {
     border: 2px solid #ec6e4c;
     border-radius: 42px;
     background: #f2e5b5;
+    
 }
 
 .search-weather {
@@ -213,3 +219,4 @@ a:link {
     /* Microsoft Edge */
     color: #f2e5b5;
 }
+
