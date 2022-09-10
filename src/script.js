@@ -2,12 +2,16 @@
 function showCity(event) {
   event.preventDefault(); 
   let cityInput = document.querySelector("#inputtype");
-  let apiKey = "6f0ce0c2725766b7e6a344b9cd75a87a";
-  let unit = "metric";
-  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
-  let apiUrl = `${apiEndpoint}?q=${cityInput.value}&appid=${apiKey}&units=${unit}`;
-  axios.get(apiUrl).then(showLiveTemperature);
+  cityStart(cityInput.value);
 }
+
+
+  //let apiKey = "6f0ce0c2725766b7e6a344b9cd75a87a";
+  //let unit = "metric";
+  //let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
+  //let apiUrl = `${apiEndpoint}?q=${cityInput.value}&appid=${apiKey}&units=${unit}`;
+  //axios.get(apiUrl).then(showLiveTemperature);
+
 
 function getApiForecast(coordinates){
 let apiKey = "6f0ce0c2725766b7e6a344b9cd75a87a";
