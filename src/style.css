@@ -98,9 +98,12 @@ a:link {
 }
 
 .d-flex {
-    padding: 10px 0;
     font-size: 55px;
     color: #ec6e4c;
+}
+
+.temp-number{
+    padding-right: 15px;
 }
 
 .float-left{
